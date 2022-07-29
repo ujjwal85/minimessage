@@ -1,3 +1,4 @@
+const {PORT}=require("./config")
 var model=require("./model")
 const hbs = require('hbs');
 const cookieParser = require('cookie-parser')
@@ -8,6 +9,7 @@ var http = require('http').Server(app);
 var mongoose = require('mongoose');
 const { rest } = require("lodash");
 const path = require('path')
+
 
 app.use(express.json());
 app.use(cookieParser());
@@ -44,6 +46,6 @@ app.post('/messages',async (req, res) => {
 })
 
 
-var server = http.listen(3000, () => {
-  console.log('server is running on port', server.address().port);
+var server = http.listen(PORT, () => {
+  console.log('server is running on port', PORT);
 });
